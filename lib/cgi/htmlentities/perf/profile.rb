@@ -6,6 +6,8 @@ require "profiler"
 
 job = CGI::HTMLEntitiesJob.new
 
+# Profiler__ was removed from the stdlib in Ruby 2.7
+# https://github.com/ruby/ruby/commit/bc76d8a232bed2e245cd3997ebd9826938f7a738
 puts "Encoding"
 Profiler__::start_profile
 job.encode(1)

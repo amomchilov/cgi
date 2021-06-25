@@ -1,10 +1,12 @@
 require "rake/testtask"
 require "rake/clean"
 
+ROOT = "lib/cgi/htmlentities"
+
 CLEAN.include("doc")
 DOCTYPES = %w[html4 xhtml1]
-DATA_FILES = DOCTYPES.map{ |d| "lib/htmlentities/mappings/#{d}.rb" }
-SOURCES = FileList["lib/**/*.rb"] - DATA_FILES
+DATA_FILES = DOCTYPES.map{ |d| "#{ROOT}/lib/htmlentities/mappings/#{d}.rb" }
+SOURCES = FileList["lib/src/htmlentities/**/*.rb"] - DATA_FILES
 
 task :default => [:entities, :test]
 
@@ -16,8 +18,8 @@ Rake::TestTask.new do |t|
 end
 
 DOCTYPES.each do |name|
-  file "lib/htmlentities/mappings/#{name}.rb" do |f|
-    sh %{ruby util/build_entities.rb #{name} > #{f.name}}
+  file "#{ROOT}/lib/htmlentities/mappings/#{name}.rb" do |f|
+    sh %{ruby #{ROOT}/util/build_entities.rb #{name} > #{f.name}}
   end
 end
 
@@ -30,11 +32,11 @@ task :entities => DATA_FILES
 desc "Run benchmark"
 task :benchmark do |t|
   system "ruby -v"
-  system "ruby perf/benchmark.rb"
+  system "ruby #{ROOT}/perf/benchmark.rb"
 end
 
 desc "Use profiler to analyse encoding and decoding"
 task :profile do |t|
   system "ruby -v"
-  system "ruby perf/profile.rb"
+  system "ruby #{ROOT}/perf/profile.rb"
 end
