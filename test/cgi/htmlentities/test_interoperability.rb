@@ -1,5 +1,5 @@
 # encoding: UTF-8
-require_relative "./test_helper"
+require_relative "./helper"
 
 if ENV["RUN_INTEROPERABILITY_TESTS"]
   class HTMLEntities::InteroperabilityTest < Test::Unit::TestCase

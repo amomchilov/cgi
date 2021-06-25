@@ -1,8 +1,8 @@
 # encoding: UTF-8
-require 'htmlentities/flavors'
-require 'htmlentities/encoder'
-require 'htmlentities/decoder'
-require 'htmlentities/version'
+require_relative './htmlentities/flavors'
+require_relative './htmlentities/encoder'
+require_relative './htmlentities/decoder'
+require_relative './htmlentities/version'
 
 #
 # HTML entity encoding and decoding for Ruby

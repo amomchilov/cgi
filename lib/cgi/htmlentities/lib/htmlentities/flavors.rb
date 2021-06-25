@@ -5,5 +5,5 @@ class HTMLEntities
 end
 
 HTMLEntities::FLAVORS.each do |flavor|
-  require "htmlentities/mappings/#{flavor}"
+  require_relative "./mappings/#{flavor}"
 end
