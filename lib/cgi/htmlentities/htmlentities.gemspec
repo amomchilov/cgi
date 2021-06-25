@@ -5,7 +5,7 @@ require "htmlentities/version"
 
 spec = Gem::Specification.new do |s|
   s.name             = "htmlentities"
-  s.version          = HTMLEntities::VERSION::STRING
+  s.version          = CGI::HTMLEntities::VERSION::STRING
   s.author           = "Paul Battley"
   s.email            = "pbattley@gmail.com"
   s.description      = "A module for encoding and decoding (X)HTML entities."

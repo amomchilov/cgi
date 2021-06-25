@@ -1,13 +1,13 @@
 # encoding: UTF-8
 require_relative "./helper"
 
-class HTMLEntities::StringEncodingsTest < Test::Unit::TestCase
+class CGI::HTMLEntities::StringEncodingsTest < Test::Unit::TestCase
 
   def test_should_encode_ascii_to_ascii
     s = "<elan>".encode(Encoding::US_ASCII)
     assert_equal Encoding::US_ASCII, s.encoding
 
-    t = HTMLEntities.new.encode(s)
+    t = CGI::HTMLEntities.new.encode(s)
     assert_equal "&lt;elan&gt;", t
     assert_equal Encoding::US_ASCII, t.encoding
   end
@@ -16,7 +16,7 @@ class HTMLEntities::StringEncodingsTest < Test::Unit::TestCase
     s = "<élan>"
     assert_equal Encoding::UTF_8, s.encoding
 
-    t = HTMLEntities.new.encode(s)
+    t = CGI::HTMLEntities.new.encode(s)
     assert_equal "&lt;élan&gt;", t
     assert_equal Encoding::UTF_8, t.encoding
   end
@@ -25,7 +25,7 @@ class HTMLEntities::StringEncodingsTest < Test::Unit::TestCase
     s = "<elan>"
     assert_equal Encoding::UTF_8, s.encoding
 
-    t = HTMLEntities.new.encode(s)
+    t = CGI::HTMLEntities.new.encode(s)
     assert_equal "&lt;elan&gt;", t
     assert_equal Encoding::US_ASCII, t.encoding
   end
@@ -34,7 +34,7 @@ class HTMLEntities::StringEncodingsTest < Test::Unit::TestCase
     s = "<élan>".encode(Encoding::ISO_8859_1)
     assert_equal Encoding::ISO_8859_1, s.encoding
 
-    t = HTMLEntities.new.encode(s)
+    t = CGI::HTMLEntities.new.encode(s)
     assert_equal "&lt;élan&gt;", t
     assert_equal Encoding::UTF_8, t.encoding
   end
@@ -43,7 +43,7 @@ class HTMLEntities::StringEncodingsTest < Test::Unit::TestCase
     s = "&lt;&eacute;lan&gt;".encode(Encoding::US_ASCII)
     assert_equal Encoding::US_ASCII, s.encoding
 
-    t = HTMLEntities.new.decode(s)
+    t = CGI::HTMLEntities.new.decode(s)
     assert_equal "<élan>", t
     assert_equal Encoding::UTF_8, t.encoding
   end
@@ -52,7 +52,7 @@ class HTMLEntities::StringEncodingsTest < Test::Unit::TestCase
     s = "&lt;&eacute;lan&gt;".encode(Encoding::UTF_8)
     assert_equal Encoding::UTF_8, s.encoding
 
-    t = HTMLEntities.new.decode(s)
+    t = CGI::HTMLEntities.new.decode(s)
     assert_equal "<élan>", t
     assert_equal Encoding::UTF_8, t.encoding
   end
@@ -61,7 +61,7 @@ class HTMLEntities::StringEncodingsTest < Test::Unit::TestCase
     s = "&lt;&eacute;lan&gt;".encode(Encoding::ISO_8859_1)
     assert_equal Encoding::ISO_8859_1, s.encoding
 
-    t = HTMLEntities.new.decode(s)
+    t = CGI::HTMLEntities.new.decode(s)
     assert_equal "<élan>", t
     assert_equal Encoding::UTF_8, t.encoding
   end

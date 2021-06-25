@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class HTMLEntities
+class CGI::HTMLEntities
   #
   # This table added by Philip (flip) Kromer <flip@infochimps.org>
   # using the mapping by John Cowan <cowan@ccil.org> (25 July 1997) at

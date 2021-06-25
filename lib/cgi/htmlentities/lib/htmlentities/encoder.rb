@@ -1,4 +1,4 @@
-class HTMLEntities
+class CGI::HTMLEntities
   InstructionError = Class.new(RuntimeError)
 
   class Encoder #:nodoc:
@@ -113,8 +113,8 @@ class HTMLEntities
 
     def reverse_map
       @reverse_map ||= (
-        skips = HTMLEntities::SKIP_DUP_ENCODINGS[@flavor]
-        map = HTMLEntities::MAPPINGS[@flavor]
+        skips = CGI::HTMLEntities::SKIP_DUP_ENCODINGS[@flavor]
+        map = CGI::HTMLEntities::MAPPINGS[@flavor]
         uniqmap = skips ? map.reject{|ent,hx| skips.include? ent} : map
         uniqmap.invert
       )

@@ -1,10 +1,10 @@
 # encoding: UTF-8
 require_relative "./helper"
 
-class HTMLEntities::EncodingTest < Test::Unit::TestCase
+class CGI::HTMLEntities::EncodingTest < Test::Unit::TestCase
 
   def setup
-    @entities = [:xhtml1, :html4, :expanded].map{ |a| HTMLEntities.new(a) }
+    @entities = [:xhtml1, :html4, :expanded].map{ |a| CGI::HTMLEntities.new(a) }
   end
 
   def assert_encode(expected, input, *args)
@@ -76,8 +76,8 @@ class HTMLEntities::EncodingTest < Test::Unit::TestCase
   end
 
   def test_should_detect_illegal_encoding_command
-    assert_raise HTMLEntities::InstructionError do
-      HTMLEntities.new.encode('foo', :bar, :baz)
+    assert_raise CGI::HTMLEntities::InstructionError do
+      CGI::HTMLEntities.new.encode('foo', :bar, :baz)
     end
   end
 
@@ -93,7 +93,7 @@ class HTMLEntities::EncodingTest < Test::Unit::TestCase
   def test_should_not_mutate_string_being_encoded
     original = "<£"
     input = original.dup
-    HTMLEntities.new.encode(input, :basic, :decimal)
+    CGI::HTMLEntities.new.encode(input, :basic, :decimal)
 
     assert_equal original, input
   end

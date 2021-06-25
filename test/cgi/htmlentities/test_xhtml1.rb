@@ -1,12 +1,12 @@
 # encoding: UTF-8
 require_relative "./helper"
 
-class HTMLEntities::XHTML1Test < Test::Unit::TestCase
+class CGI::HTMLEntities::XHTML1Test < Test::Unit::TestCase
 
   attr_reader :html_entities
 
   def setup
-    @html_entities = HTMLEntities.new('xhtml1')
+    @html_entities = CGI::HTMLEntities.new('xhtml1')
   end
 
   def test_should_encode_apos_entity

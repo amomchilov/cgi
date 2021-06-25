@@ -3,7 +3,7 @@ require 'test/unit'
 require 'cgi'
 require 'stringio'
 require_relative 'update_env'
-
+require_relative '../lib/helper'
 
 class CGIUtilTest < Test::Unit::TestCase
   include CGI::Util

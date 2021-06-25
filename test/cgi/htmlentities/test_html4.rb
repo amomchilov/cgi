@@ -6,7 +6,7 @@ class HTML4Test < Test::Unit::TestCase
   attr_reader :html_entities
 
   def setup
-    @html_entities = HTMLEntities.new('html4')
+    @html_entities = CGI::HTMLEntities.new('html4')
   end
 
   # Found by Marcos Kuhns

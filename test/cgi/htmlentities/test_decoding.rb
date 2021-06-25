@@ -1,10 +1,10 @@
 # encoding: UTF-8
 require_relative "./helper"
 
-class HTMLEntities::DecodingTest < Test::Unit::TestCase
+class CGI::HTMLEntities::DecodingTest < Test::Unit::TestCase
 
   def setup
-    @entities = [:xhtml1, :html4, :expanded].map{ |a| HTMLEntities.new(a) }
+    @entities = [:xhtml1, :html4, :expanded].map{ |a| CGI::HTMLEntities.new(a) }
   end
 
   def assert_decode(expected, input)
@@ -42,7 +42,7 @@ class HTMLEntities::DecodingTest < Test::Unit::TestCase
   def test_should_not_mutate_string_being_decoded
     original = "&lt;&#163;"
     input = original.dup
-    HTMLEntities.new.decode(input)
+    CGI::HTMLEntities.new.decode(input)
 
     assert_equal original, input
   end

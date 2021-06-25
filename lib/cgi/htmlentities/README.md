@@ -21,7 +21,7 @@ examples. In Ruby 1.8, you'll need to set `$KCODE = "u"`.
 
 ```ruby
 require 'htmlentities'
-coder = HTMLEntities.new
+coder = CGI::HTMLEntities.new
 string = "&eacute;lan"
 coder.decode(string) # => "élan"
 ```
@@ -34,7 +34,7 @@ to carry out.
 
 ```ruby
 require 'htmlentities'
-coder = HTMLEntities.new
+coder = CGI::HTMLEntities.new
 string = "<élan>"
 ```
 
@@ -85,7 +85,7 @@ HTMLEntities knows about three different sets of entities:
 The default is `:xhtml`, but you can override this:
 
 ```ruby
-coder = HTMLEntities.new(:expanded)
+coder = CGI::HTMLEntities.new(:expanded)
 ```
 
 ## Licence

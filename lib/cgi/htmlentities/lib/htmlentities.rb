@@ -7,11 +7,11 @@ require_relative './htmlentities/version'
 #
 # HTML entity encoding and decoding for Ruby
 #
-class HTMLEntities
+class CGI::HTMLEntities
   UnknownFlavor = Class.new(RuntimeError)
 
   #
-  # Create a new HTMLEntities coder for the specified flavor.
+  # Create a new CGI::HTMLEntities coder for the specified flavor.
   # Available flavors are 'html4', 'expanded' and 'xhtml1' (the default).
   #
   # The only difference in functionality between html4 and xhtml1 is in the

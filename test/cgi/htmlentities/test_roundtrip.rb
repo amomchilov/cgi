@@ -1,13 +1,13 @@
 # encoding: UTF-8
 require_relative "./helper"
 
-class HTMLEntities::RoundtripTest < Test::Unit::TestCase
+class CGI::HTMLEntities::RoundtripTest < Test::Unit::TestCase
 
   attr_reader :xhtml1_entities, :html4_entities
 
   def setup
-    @xhtml1_entities = HTMLEntities.new('xhtml1')
-    @html4_entities = HTMLEntities.new('html4')
+    @xhtml1_entities = CGI::HTMLEntities.new('xhtml1')
+    @html4_entities = CGI::HTMLEntities.new('html4')
   end
 
   def test_should_roundtrip_xhtml1_entities_via_named_encoding
@@ -59,7 +59,7 @@ class HTMLEntities::RoundtripTest < Test::Unit::TestCase
   end
 
   def each_mapping(flavor)
-    HTMLEntities::MAPPINGS[flavor].each do |name, codepoint|
+    CGI::HTMLEntities::MAPPINGS[flavor].each do |name, codepoint|
       yield name, [codepoint].pack('U')
     end
   end

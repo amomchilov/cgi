@@ -1,12 +1,12 @@
 # encoding: UTF-8
 require_relative "./helper"
 
-class HTMLEntities::ExpandedTest < Test::Unit::TestCase
+class CGI::HTMLEntities::ExpandedTest < Test::Unit::TestCase
 
   attr_reader :html_entities
 
   def setup
-    @html_entities = HTMLEntities.new(:expanded)
+    @html_entities = CGI::HTMLEntities.new(:expanded)
   end
 
   TEST_ENTITIES_SET = [
@@ -90,15 +90,15 @@ class HTMLEntities::ExpandedTest < Test::Unit::TestCase
   end
 
   def test_should_treat_all_xhtml1_named_entities_as_xhtml_does
-    xhtml_encoder = HTMLEntities.new(:xhtml1)
-    HTMLEntities::MAPPINGS['xhtml1'].each do |ent, decoded|
+    xhtml_encoder = CGI::HTMLEntities.new(:xhtml1)
+    CGI::HTMLEntities::MAPPINGS['xhtml1'].each do |ent, decoded|
       assert_equal xhtml_encoder.decode("&#{ent};"),      html_entities.decode("&#{ent};")
       assert_equal xhtml_encoder.encode(decoded, :named), html_entities.encode(decoded, :named)
     end
   end
 
   def test_should_not_agree_with_xhtml1_when_not_in_xhtml
-    xhtml_encoder = HTMLEntities.new(:xhtml1)
+    xhtml_encoder = CGI::HTMLEntities.new(:xhtml1)
     TEST_ENTITIES_SET.each do |ent, _, xhtml1, skip, decoded|
       next if xhtml1 || skip
       assert_not_equal xhtml_encoder.decode("&#{ent};"),         html_entities.decode("&#{ent};")

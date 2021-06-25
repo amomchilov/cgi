@@ -4,9 +4,9 @@ $KCODE = 'u' unless "1.9".respond_to?(:encoding)
 $:.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 require "htmlentities"
 
-class HTMLEntitiesJob
+class CGI::HTMLEntitiesJob
   def initialize
-    @coder = HTMLEntities.new
+    @coder = CGI::HTMLEntities.new
     @decoded = File.read(File.join(File.dirname(__FILE__), "sample"))
     @encoded = @coder.encode(@decoded, :basic, :named, :hexadecimal)
   end

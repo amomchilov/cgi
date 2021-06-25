@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class HTMLEntities
+class CGI::HTMLEntities
   MAPPINGS['html4'] = {
     'Aacute' => 193,
     'aacute' => 225,

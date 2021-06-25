@@ -39,7 +39,7 @@ entities['amp'] = '&'.codepoints.first
 
 puts <<"END"
 # encoding: UTF-8
-class HTMLEntities
+class CGI::HTMLEntities
   MAPPINGS['#{flavor}'] = {
 #{
   entities.keys.sort_by{ |s|

@@ -1,8 +1,8 @@
-class HTMLEntities
+class CGI::HTMLEntities
   class Decoder #:nodoc:
     def initialize(flavor)
       @flavor = flavor
-      @map = HTMLEntities::MAPPINGS[@flavor]
+      @map = CGI::HTMLEntities::MAPPINGS[@flavor]
       @entity_regexp = entity_regexp
     end
 

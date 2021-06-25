@@ -4,7 +4,7 @@ $KCODE = 'u' unless "1.9".respond_to?(:encoding)
 require File.expand_path("../performance", __FILE__)
 require "profiler"
 
-job = HTMLEntitiesJob.new
+job = CGI::HTMLEntitiesJob.new
 
 puts "Encoding"
 Profiler__::start_profile
